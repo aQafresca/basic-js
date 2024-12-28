@@ -16,7 +16,8 @@ function getSeason(date) {
         return 'Unable to determine the time of year!';
     }
 
-    if (date == null || !(date instanceof Date) || Object.keys(date).length) throw new Error('Invalid date!');
+    if (date == null || !(date instanceof Date) || Object.keys(date).length) 
+        throw new Error('Invalid date!');
 
 let month = date.getMonth();
 

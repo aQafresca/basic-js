@@ -20,7 +20,7 @@ for (let i = 0; i < arrS1.length; i += 1) {
   const index = arrS2.indexOf(arrS1[i]);
   if (index !== -1) {
     result += 1;
-    arrS2.splice(index, 1)
+    arrS2.splice(index, 1);
   }
 }
 return result;

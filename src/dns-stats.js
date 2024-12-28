@@ -22,8 +22,25 @@ const { NotImplementedError } = require('../extensions/index.js');
  * }
  *
  */
-function getDNSStats( /* domains */) {
-  throw new NotImplementedError('Not implemented');
+function getDNSStats(domains) {
+  const suffixCount = {};
+
+  domains.forEach(domain => {
+      const parts = domain.split('.').reverse();
+
+      let suffix = '';
+
+      for (let i = 0; i < parts.length; i += 1) {
+        suffix = `${suffix}.${parts[i]}`;
+        if (suffixCount[suffix]) {
+          suffixCount[suffix] += 1;
+        } else {
+          suffixCount[suffix] = 1;
+        }
+      }
+  });
+
+  return suffixCount;
 }
 
 module.exports = {
